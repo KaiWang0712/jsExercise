@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>完美框架实现多物体同时运动</title>
+  <script type="text/javascript" src="js/move.js"></script>
+  <script type="text/javascript">
+  window.onload=function() {
+    var oLi = document.getElementsByClassName('li1');;
+    for(var i=0; i<oLi.length; i++){
+      oLi[i].onmouseover=function() {
+        startMove(this,{"width":400, "height":200}, function(obj) { //obj参数很重要
+          startMove(obj, {"opacity":100});
+        });
+      };
+      oLi[i].onmouseout=function() {
+        startMove(this,{"width":200, "height":100}, function(obj) { //obj参数很重要
+          startMove(obj, {"opacity":30});
+        });
+      }
+
+    }
+    
+  }
+  </script>
+  <style type="text/css">
+  *{
+    margin:0;
+    padding:0;
+  }
+  ul,li{
+    list-style: none;
+  }
+  li{
+    width: 200px;
+    height: 100px;
+    background: yellow;
+    margin-bottom: 20px;
+    opacity:0.3;
+  }
+  </style>
+</head>
+<body>
+  <ul>
+    <li class="li1"></li>
+    <li class="li1"></li>
+    <li class="li1"></li>
+  </ul>
+</body>
+</html>
