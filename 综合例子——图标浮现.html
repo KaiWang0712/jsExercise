@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>js动画案例_浮现</title>
+  <style type="text/css">
+  *{
+    padding:0px;
+    margin:0px;
+  }
+  #move{
+    width: 300px;
+    height: 200px;
+    margin:10px auto;
+    background-color: #ccc;
+    border: 1px solid #ccc;
+  }
+  #move a{
+    display: inline-block;
+    width: 58px;
+    height: 74px;
+    border:1px solid #ddd;
+    border-radius: 3px;
+    background-color: #fff;
+    text-align: center;
+    margin:10px 17px;
+    position: relative;
+    color: #9c9c9c;
+    font-size: 12px;
+    text-decoration: none;
+    line-height: 25px;
+    overflow: hidden;
+  }
+  #move img{
+    margin:0 auto;
+  }
+  #move a b{
+    position:absolute;
+    top:20px;
+    left: 0px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    filter:alpha(opacity=100);
+    opacity:0.6;
+  }
+  #move a:hover{
+    color: #f00;
+  }
+
+  #move img{
+    border:none;
+  }
+  </style>
+  <script type="text/javascript" src="js/move.js"> </script>
+  <script type="text/javascript">
+  window.onload=function() {
+    var oMove = document.getElementById('move');
+    var aList = oMove.getElementsByTagName('a');
+    console.log(aList[0]);
+
+    for(var i=0;i<aList.length;i++){
+      aList[i].onmouseover = function() {
+        var _img = this.getElementsByTagName('b')[0];
+        startMove(_img,{"top":5,"opacity":100});
+      };
+      aList[i].onmouseout = function() {
+        var _img = this.getElementsByTagName('b')[0];
+        startMove(_img,{"top":25,"opacity":50});
+      };
+    };
+  }
+  </script>
+</head>
+<body>
+  <div id="move">
+    <a href="#"><b>
+        <img src="img/1.jpg" alt="充话费">
+        <p>充话费</p>
+      </b></a>
+    <a href="#"><b>
+        <img src="img/2.jpg" alt="游戏">
+        <p>游戏</p>
+      </b></a>
+    <a href="#"><b>
+        <img src="img/3.jpg" alt="旅行">
+        <p>旅行</p>
+      </b></a>
+    <a href="#"><b>
+        <img src="img/4.jpg" alt="保险">
+        <p>保险</p>
+      </b></a>
+    <a href="#"><b>
+        <img src="img/5.jpg" alt="彩票">
+        <p>彩票</p>
+      </b></a>
+    <a href="#"><b>
+        <img src="img/6.jpg" alt="电影">
+        <p>电影</p>
+      </b></a>
+  </div>
+</body>
+</html>
