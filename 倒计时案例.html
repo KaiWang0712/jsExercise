@@ -51,13 +51,16 @@
 
   function countdownTime2(){
     var now = new Date();
-    var endtime = new Date("2016,7,3,17:00:00");
+    var endtime = new Date("2016,5,3,15:45:00");
     var delta = parseInt((endtime.getTime()-now.getTime())/1000);
     var d = parseInt(delta/3600/24);
     var h = parseInt(delta/3600%24);
     var m = parseInt(delta/60%60);
     var s = parseInt(delta%60);
     document.getElementById('countdown2').innerHTML = d+"天 "+h+"小时 "+m+"分 "+s+"秒";
+    if(delta<=0){
+      document.getElementById('countdown2').innerHTML ="倒计时结束！"
+    }
     setTimeout(countdownTime2, 500)
   }
 
